@@ -106,10 +106,10 @@
 
 (progn
   (let ((*lexicals* '("NUMNAMES" "NAMESLEFT" "NAMEPTR" "S" "T" "LEN" "MULTIRESULT")))
-    (compile-bst-file (kpathsea:find-file "amsalpha-xx.bst")
+    (compile-bst-file (kpathsea:find-file "amsalpha.bst")
 		      "/tmp/compiled-bst.lisp"))
   (load "/tmp/compiled-bst.lisp" :if-source-newer :compile)
-  (cl-bibtex "ibm-theory" 'amsalpha-xx))
+  (cl-bibtex "ibm-theory" 'amsalpha))
 
 (let ((*lexicals* '("NUMNAMES" "NAMESLEFT" "NAMEPTR" "S" "T" "LEN" "MULTIRESULT")))
     (compile-bst-file "/home/mkoeppe/w/diss/diss.bst"
