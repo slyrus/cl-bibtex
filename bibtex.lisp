@@ -105,6 +105,7 @@
   (read s))
 
 (progn
+  (setf (ext:default-directory) "/home/mkoeppe/w/iba-papers/")
   (let ((*lexicals* '("NUMNAMES" "NAMESLEFT" "NAMEPTR" "S" "T" "LEN" "MULTIRESULT")))
     (compile-bst-file (kpathsea:find-file "amsalpha.bst")
 		      "/tmp/compiled-bst.lisp"))
