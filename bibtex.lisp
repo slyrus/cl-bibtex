@@ -11,7 +11,9 @@
         when (and (member (bst-function-type fun)
                           '(wizard-defined compiled-wiz-defined))
                   (null (bst-function-argument-types fun))
-                  (null (bst-function-result-types fun)))
+                  (null (bst-function-result-types fun))
+		  (side-effects-side-effects-p
+		   (bst-function-side-effects fun)))
 	collect (cons (bst-function-name fun)
 		      (bst-function-lisp-name fun))))
   
@@ -108,6 +110,10 @@
 		      "/tmp/compiled-bst.lisp"))
   (load "/tmp/compiled-bst.lisp" :if-source-newer :compile)
   (cl-bibtex "ibm-theory" 'amsalpha-xx))
+
+(let ((*lexicals* '("NUMNAMES" "NAMESLEFT" "NAMEPTR" "S" "T" "LEN" "MULTIRESULT")))
+    (compile-bst-file "/home/mkoeppe/w/diss/diss.bst"
+		      "/tmp/compiled-bst.lisp"))
 
 (compile-bst-file "test.bst"
 		  "/tmp/compiled-bst.lisp")
