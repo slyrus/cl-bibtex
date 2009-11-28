@@ -119,3 +119,5 @@ if A and B are not equal and have no meaningful order relation.")
 	(t form)))
 
 #+CMU (ext:define-hash-table-test 'cmp= #'cmp= #'hash)
+#+SBCL (sb-ext:define-hash-table-test cmp= hash)
+#+CLISP (ext:define-hash-table-test cmp= cmp= hash)
