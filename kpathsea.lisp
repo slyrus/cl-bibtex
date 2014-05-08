@@ -42,8 +42,7 @@
   #+abcl
   (let ((process
 	 (sys:run-program "/usr/bin/env"
-			     (list "kpsewhich" (namestring name))
-			     :output :stream)))
+			     (list "kpsewhich" (namestring name)))))
     (let ((line (read-line (sys:process-output process) nil nil)))
       (and line
            (parse-namestring line))))
